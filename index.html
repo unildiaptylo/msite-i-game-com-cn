@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 稳定入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f9f6f0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #2c2c2c;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+        }
+
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            background: #fffcf7;
+            border-radius: 28px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 12px 32px rgba(0,0,0,0.04), 0 4px 8px rgba(0,0,0,0.02);
+        }
+
+        /* hero 开场短句 */
+        .hero-tagline {
+            margin-bottom: 2rem;
+            border-left: 6px solid #c8a477;
+            padding-left: 1.2rem;
+        }
+
+        .hero-tagline h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: #1f1f1f;
+            margin-bottom: 0.3rem;
+        }
+
+        .hero-tagline .sub {
+            font-size: 1.05rem;
+            color: #6b5f50;
+            font-weight: 400;
+        }
+
+        /* 承接段落 */
+        .intro-text {
+            margin: 2.2rem 0 2.5rem 0;
+            font-size: 1.04rem;
+        }
+
+        .intro-text p {
+            margin-bottom: 1.2rem;
+        }
+
+        .intro-text a {
+            color: #8b6f4e;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #dccfc0;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .intro-text a:hover {
+            color: #5f4a30;
+            border-bottom-color: #8b6f4e;
+        }
+
+        /* 引用块 / 提示框 */
+        .callout-box {
+            background-color: #f2ede4;
+            border-radius: 18px;
+            padding: 1.6rem 2rem;
+            margin: 2rem 0;
+            border-left: 5px solid #b3977a;
+            font-size: 0.98rem;
+            color: #3d362e;
+        }
+
+        .callout-box strong {
+            color: #2b231c;
+            font-weight: 600;
+        }
+
+        /* 特点列表 — 简洁, 信息密度高 */
+        .feature-list {
+            margin: 2.2rem 0 1.8rem 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem 1.8rem;
+            list-style: none;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 1.6rem;
+            font-size: 1.02rem;
+            line-height: 1.6;
+        }
+
+        .feature-list li::before {
+            content: "·";
+            position: absolute;
+            left: 0.2rem;
+            color: #a58562;
+            font-weight: 700;
+            font-size: 1.4rem;
+        }
+
+        @media (max-width: 600px) {
+            .feature-list {
+                grid-template-columns: 1fr;
+                gap: 0.6rem 0;
+            }
+            .container {
+                padding: 2rem 1.5rem;
+            }
+            .hero-tagline h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* 场景段落 */
+        .scenario {
+            margin: 2.2rem 0;
+            padding: 0.2rem 0;
+        }
+
+        .scenario h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #4a3f34;
+            margin-bottom: 0.7rem;
+            letter-spacing: 0.01em;
+        }
+
+        .scenario p {
+            margin-bottom: 1rem;
+        }
+
+        /* FAQ 摘要 — 线条简洁 */
+        .faq-mini {
+            margin: 2.5rem 0 1rem 0;
+            border-top: 1px solid #e3d9cd;
+            padding-top: 2rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #f0e8dd;
+            padding-bottom: 0.8rem;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            color: #3f372e;
+            cursor: pointer;
+            padding: 0.3rem 0;
+            font-size: 1rem;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .faq-mini summary::before {
+            content: "▸";
+            color: #b3977a;
+            font-size: 1.2rem;
+            line-height: 1;
+            transition: transform 0.2s;
+        }
+
+        .faq-mini details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .faq-mini details p {
+            margin: 0.6rem 0 0.4rem 1.8rem;
+            color: #5a5044;
+            font-size: 0.97rem;
+        }
+
+        /* 温和结尾 */
+        .ending-note {
+            margin-top: 2.8rem;
+            padding-top: 1.6rem;
+            border-top: 1px solid #e3d9cd;
+            font-size: 1rem;
+            color: #62584b;
+        }
+
+        .ending-note a {
+            color: #8b6f4e;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #dccfc0;
+            transition: border-color 0.2s;
+        }
+
+        .ending-note a:hover {
+            border-bottom-color: #8b6f4e;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .container {
+                padding: 1.8rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- hero 开场短句 -->
+    <div class="hero-tagline">
+        <h1>爱游戏</h1>
+        <div class="sub">从稳定的入口开始，理解你常去的页面</div>
+    </div>
+
+    <!-- 承接段落：从稳定入口和页面说明的角度展开 -->
+    <div class="intro-text">
+        <p>
+            在日常浏览中，一个可靠、无干扰的访问路径往往比内容本身更值得留意。
+            <a href="https://msite-i-game.com.cn">爱游戏</a> 所呈现的入口结构，
+            旨在降低跳转过程中的不确定因素——无论你是在移动端还是桌面环境，
+            页面布局均保持一致的响应逻辑与清晰的导航层次。
+        </p>
+        <p>
+            下文从页面构成、功能模块与常见使用场景出发，提供一份简明的说明参考。
+            这不是一份操作手册，而是对网站稳定性的侧面记录：当入口足够简洁，
+            你便能将注意力集中在真正想做的事上。
+        </p>
+    </div>
+
+    <!-- 引用块 / 提示框 -->
+    <div class="callout-box">
+        <strong>页面基调</strong> · 
+        本站未使用自动跳转、弹窗遮盖或冗余脚本。所有主入口均以静态链接呈现，
+        加载流程直接，不依赖第三方重定向。你看到的就是你应该到达的位置。
+    </div>
+
+    <!-- 特点列表 (信息密度稍高) -->
+    <ul class="feature-list">
+        <li>基于 <strong>msite-i-game.com.cn</strong> 统一域名，避免多级子域名造成的混淆</li>
+        <li>页面结构采用语义化标签，对屏幕阅读器友好；样式与内容分离</li>
+        <li>无强制登录或信息收集表单，浏览过程保持低介入状态</li>
+        <li>所有可见链接均指向同一源站，不嵌入外部跟踪参数</li>
+        <li>CSS 与字体使用本地引用，不依赖外部 CDN，减少解析延迟</li>
+        <li>移动端视口配置明确，缩放行为由用户控制</li>
+    </ul>
+
+    <!-- 场景段落：从实际使用切入 -->
+    <div class="scenario">
+        <h3>常见使用场景</h3>
+        <p>
+            当你通过书签或手动输入域名进入 <a href="https://msite-i-game.com.cn">爱游戏</a> 时，
+            页面会在数百毫秒内完成首屏渲染。对于需要快速确认资源是否可用的用户而言，
+            这种低等待特性减少了反复刷新的必要。同时，由于页面不包含自动播放媒体或定时刷新行为，
+            你可以在阅读后自由关闭标签页，无需担心后台流量。
+        </p>
+        <p>
+            如果你需要将当前页面分享给他人，直接复制地址栏 URL 即可——它不附加任何追踪后缀，
+            且始终指向同一个稳定的资源位置。
+        </p>
+    </div>
+
+    <!-- FAQ 摘要部分 -->
+    <div class="faq-mini">
+        <details>
+            <summary>这个页面是否长期有效？</summary>
+            <p>只要域名服务保持正常，该入口页就会以当前结构持续响应。任何重大变更会通过页面版本号或公告形式说明。</p>
+        </details>
+        <details>
+            <summary>页面中是否包含第三方内容？</summary>
+            <p>不包含。所有文本、样式和资源均来自本站域名，未嵌入外部脚本、字体或分析工具。</p>
+        </details>
+        <details>
+            <summary>移动端与桌面端体验有何差异？</summary>
+            <p>主要差异体现在栅格列数与字号响应上，但所有功能链接和交互元素在两种视口中均可完整使用。</p>
+        </details>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="ending-note">
+        <p>如果你正在寻找一个结构透明、入口稳定的页面作为起点，<a href="https://msite-i-game.com.cn">爱游戏</a> 提供的就是这样一种基础：没有多余的装饰，也不制造不必要的悬念。页面就在这里，随时可以打开。</p>
+    </div>
+</div>
+</body>
+</html>
