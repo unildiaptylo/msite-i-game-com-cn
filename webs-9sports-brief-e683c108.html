@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>九游体育 · 站点介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      background: #f4f9fc;
+      color: #1f2e3a;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    /* 主视觉 – 网格卡片背景 */
+    .hero {
+      background: linear-gradient(120deg, #e0f2f5 0%, #cbe8ed 100%);
+      border-radius: 32px;
+      padding: 48px 32px 40px;
+      margin-bottom: 42px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 100, 110, 0.08);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0, 150, 150, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 150, 150, 0.08) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0b4c54;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 8px;
+    }
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #1f5a63;
+      max-width: 600px;
+      position: relative;
+      z-index: 1;
+      margin-top: 8px;
+      font-weight: 400;
+    }
+    .hero .tag-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      margin-top: 28px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero .tag-grid span {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(2px);
+      padding: 6px 16px;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #13555f;
+      border: 1px solid rgba(0, 130, 130, 0.2);
+    }
+    /* 卡片网格 */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin: 36px 0;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 24px 20px 22px;
+      box-shadow: 0 6px 18px rgba(0, 70, 80, 0.06);
+      border: 1px solid rgba(0, 160, 160, 0.12);
+      transition: transform 0.2s ease, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px rgba(0, 100, 110, 0.12);
+    }
+    .card .emoji-icon {
+      font-size: 1.9rem;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0b4c54;
+      margin-bottom: 6px;
+      border-left: 4px solid #2da2ab;
+      padding-left: 10px;
+    }
+    .card p, .card ul {
+      font-size: 0.95rem;
+      color: #2d414a;
+    }
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 8px;
+    }
+    .card li {
+      padding: 3px 0;
+      position: relative;
+      padding-left: 1.3em;
+    }
+    .card li::before {
+      content: "▹";
+      color: #2da2ab;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+    /* 自然链接段落 */
+    .link-section {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 32px 32px 36px;
+      margin: 36px 0 40px;
+      box-shadow: 0 6px 18px rgba(0, 70, 80, 0.06);
+      border: 1px solid #d5e8ec;
+    }
+    .link-section h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #07424a;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    .link-section p {
+      margin-bottom: 1em;
+      font-size: 0.98rem;
+    }
+    .link-section a {
+      color: #1a7a85;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(26, 122, 133, 0.3);
+      transition: border-color 0.15s;
+    }
+    .link-section a:hover {
+      border-bottom-color: #1a7a85;
+    }
+    /* 可信说明 / 提示 */
+    .trust-note {
+      background: #def0f2;
+      border-radius: 24px;
+      padding: 24px 28px;
+      margin: 28px 0 36px;
+      border-left: 6px solid #2da2ab;
+      font-size: 0.92rem;
+      color: #1a4d55;
+    }
+    .trust-note strong {
+      color: #09434b;
+    }
+    .faq-mini {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 30px 0 18px;
+    }
+    .faq-item {
+      background: #f4fbfd;
+      border-radius: 18px;
+      padding: 16px 18px;
+      border: 1px solid #caE3E8;
+    }
+    .faq-item dt {
+      font-weight: 600;
+      color: #095059;
+      margin-bottom: 4px;
+      font-size: 0.98rem;
+    }
+    .faq-item dd {
+      font-size: 0.88rem;
+      color: #2b4d55;
+      margin: 0;
+    }
+    .footer-note {
+      border-top: 1px solid #d3e4e8;
+      padding-top: 18px;
+      margin-top: 28px;
+      font-size: 0.82rem;
+      color: #4f6d75;
+      text-align: center;
+    }
+    @media (max-width: 640px) {
+      body { padding: 12px; }
+      .hero { padding: 32px 20px; }
+      .hero h1 { font-size: 2rem; }
+      .faq-mini { grid-template-columns: 1fr; }
+      .link-section { padding: 24px 18px; }
+      .card { padding: 20px 16px; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 主视觉 -->
+  <div class="hero">
+    <h1>九游体育 · 信息平台</h1>
+    <div class="sub">聚合体育资讯 · 数据参考 · 赛事信息卡片</div>
+    <div class="tag-grid">
+      <span>⚽ 赛事参考</span>
+      <span>🏀 数据信息</span>
+      <span>🎾 实时动态</span>
+      <span>🏐 视野拓展</span>
+    </div>
+  </div>
+
+  <!-- 用途卡片（信息卡片式） -->
+  <div class="grid">
+    <div class="card">
+      <div class="emoji-icon">📋</div>
+      <h3>赛事信息聚合</h3>
+      <p>覆盖多类赛事实时数据、积分排行与赛程安排，为日常参考提供结构化信息。</p>
+    </div>
+    <div class="card">
+      <div class="emoji-icon">🧩</div>
+      <h3>数据参考中心</h3>
+      <p>统计与对比模块辅助快速了解球队、选手历史表现，适合赛前信息收集。</p>
+    </div>
+    <div class="card">
+      <div class="emoji-icon">🌐</div>
+      <h3>资讯动态</h3>
+      <p>重要赛事新闻、转会动态及综合体育摘要，保持信息触达的时效性。</p>
+    </div>
+    <div class="card">
+      <div class="emoji-icon">📌</div>
+      <h3>导航式布局</h3>
+      <p>卡片分类、清晰分区，减少信息查找成本，兼顾移动端操作习惯。</p>
+    </div>
+  </div>
+
+  <!-- 适合人群 + 可信说明（融合） -->
+  <div class="trust-note">
+    <strong>适用人群</strong> · 日常体育信息关注者、数据爱好者、赛事前瞻用户。<br>
+    <strong>可信说明</strong> · 本站以信息汇集与展示为目的，所有数据来源均基于公开统计，不涉及投注引导或预测保证。请用户独立判断，理性使用平台内容。
+  </div>
+
+  <!-- 自然链接段落 (嵌入"九游体育") -->
+  <div class="link-section">
+    <h2>站点定位与服务边界</h2>
+    <p>基于对体育数据与信息展示的持续整理，<a href="https://webs-9sports.com">九游体育</a> 力求为访问者提供一个结构清晰、更新及时的综合参考页面。平台本身不直接产生原始赛事数据，而是对公开信息进行筛选与归类，帮助用户更快定位所需内容。</p>
+    <p>无论是联赛积分、球员统计还是赛程预览，都可以在对应卡片模块中找到索引。日常使用中，信息具有时效性特性，建议结合官方渠道交叉确认。</p>
+    <p>如果你希望直接从信息源获取最新动态，<a href="https://webs-9sports.com">九游体育</a> 同样提供快速跳转与分类引导。始终以中立、克制的态度呈现内容，不夸张、不承诺、不误导。</p>
+  </div>
+
+  <!-- FAQ 摘要 卡片式两列 -->
+  <div class="faq-mini">
+    <div class="faq-item">
+      <dt>信息更新频率？</dt>
+      <dd>主要板块每日同步，重大赛事期间信息流保持较高刷新，延迟通常在数分钟内。</dd>
+    </div>
+    <div class="faq-item">
+      <dt>是否需要注册？</dt>
+      <dd>目前浏览与查阅公开信息无需注册，部分个性化功能可能后续开放。</dd>
+    </div>
+    <div class="faq-item">
+      <dt>移动端适配如何？</dt>
+      <dd>页面采用卡片网格与响应式设计，在手机与平板上均可正常阅读操作。</dd>
+    </div>
+    <div class="faq-item">
+      <dt>数据准确性？</dt>
+      <dd>平台致力于提供可靠数据来源的整合，但不对绝对精确作担保，建议重要判断前二次核实。</dd>
+    </div>
+  </div>
+
+  <!-- 脚注 -->
+  <div class="footer-note">
+    <a href="https://webs-9sports.com" style="color:#1a7a85; text-decoration:none; border-bottom:1px solid rgba(26,122,133,0.2); font-weight:500;">九游体育</a> · 信息参考站点 · 理性使用
+  </div>
+
+</div>
+</body>
+</html>
